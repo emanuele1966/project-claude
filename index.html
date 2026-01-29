@@ -179,6 +179,37 @@
         font-size: 13px;
       }
 
+      .about-me {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: clamp(22px, 4vw, 40px);
+        margin-bottom: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .about-me h2 {
+        margin: 0 0 12px 0;
+        font-size: clamp(18px, 2.5vw, 22px);
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .about-me .about-emoji {
+        font-style: normal;
+      }
+
+      .about-me p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .btn {
           transition: none;
@@ -196,6 +227,10 @@
       <img src="assets/header-ai.png" alt="Header a tema intelligenza artificiale" />
     </header>
     <main class="wrap">
+      <section class="about-me" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">Chi sono <span class="about-emoji" aria-hidden="true">👩‍💻</span></h2>
+        <p>Sono Ema, sviluppatrice con la passione per il codice e per le nuove tecnologie. Mi piace creare progetti con l’aiuto dell’AI e sperimentare strumenti come Cursor per lavorare in modo più efficiente e creativo.</p>
+      </section>
       <section class="card" aria-label="Il mio primo progetto">
         <header>
           <h1>Progetto test di verifica claude code</h1>
