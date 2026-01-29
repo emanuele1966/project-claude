@@ -210,6 +210,106 @@
         line-height: 1.7;
       }
 
+      .form-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: clamp(22px, 4vw, 40px);
+        margin-top: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .form-box h2 {
+        margin: 0 0 20px 0;
+        font-size: clamp(18px, 2.5vw, 22px);
+        letter-spacing: -0.02em;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      @media (max-width: 520px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .form-group label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        font-family: inherit;
+        font-size: 15px;
+        transition: border-color 160ms ease;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent2);
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .form-group-checkbox {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .form-group-checkbox input {
+        width: auto;
+        margin-top: 4px;
+        accent-color: var(--accent2);
+      }
+
+      .form-group-checkbox label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .form-box .btn {
+        align-self: flex-start;
+        margin-top: 8px;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .btn {
           transition: none;
@@ -245,6 +345,35 @@
         <div class="actions">
           <a class="btn" href="https://www.rhei.it" target="_blank" rel="noopener noreferrer">Contattami</a>
           <span class="hint">Suggerimento: apri questo file nel browser.</span>
+        </div>
+
+        <div class="form-box" id="form-contatti">
+          <h2 id="form-title">Invia una richiesta</h2>
+          <form class="contact-form" action="#" method="post" aria-labelledby="form-title">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required />
+              </div>
+              <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tua@email.it" required />
+            </div>
+            <div class="form-group">
+              <label for="messaggio">Messaggio</label>
+              <textarea id="messaggio" name="messaggio" placeholder="Scrivi il tuo messaggio..." required></textarea>
+            </div>
+            <div class="form-group form-group-checkbox">
+              <input type="checkbox" id="privacy" name="privacy" required aria-describedby="privacy-label" />
+              <label id="privacy-label" for="privacy">Acconsento al trattamento dei miei dati personali secondo la normativa sulla privacy (GDPR).</label>
+            </div>
+            <button type="submit" class="btn">Invia richiesta</button>
+          </form>
         </div>
       </section>
     </main>
